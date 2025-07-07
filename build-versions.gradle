@@ -23,53 +23,43 @@ ext {
 
 task buildForVersion {
     doLast {
-        def targetVersion = project.findProperty('targetVersion') ?: '1.21.5'
+        def targetVersion = project.findProperty('targetVersion') ?: '1.21.7'
         def versionConfig = versions[targetVersion]
-        
+
         if (!versionConfig) {
-            throw new GradleException("Unsupported version: ${targetVersion}. Supported versions: ${versions.keySet().join(', ')}")
+            throw new GradleException("Unsupported version: ${targetVersion}. Supported: ${versions.keySet().join(', ')}")
         }
-        
+
         println "Building for Minecraft ${targetVersion}..."
-        
+
         // Update gradle.properties temporarily
         def gradleProps = new File('gradle.properties')
         def props = gradleProps.text
-        
+
         props = props.replaceAll(/minecraft_version=.*/, "minecraft_version=${versionConfig.minecraft}")
         props = props.replaceAll(/yarn_mappings=.*/, "yarn_mappings=${versionConfig.yarn}")
         props = props.replaceAll(/fabric_version=.*/, "fabric_version=${versionConfig.fabric}")
         props = props.replaceAll(/mod_version=.*/, "mod_version=1.0.0-${targetVersion}")
-        
+
         gradleProps.text = props
-        
+
         // Build the project
         exec {
-            commandLine './gradlew', 'build'
+            if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+                commandLine 'cmd', '/c', 'gradlew.bat', 'build'
+            } else {
+                commandLine './gradlew', 'build'
+            }
         }
-        
+
         // Rename the output file
         def buildDir = new File('build/libs')
         def jarFile = buildDir.listFiles().find { it.name.endsWith('.jar') && !it.name.endsWith('-sources.jar') }
-        
+
         if (jarFile) {
             def newName = jarFile.name.replace('.jar', "-${targetVersion}.jar")
             jarFile.renameTo(new File(buildDir, newName))
             println "Built: ${newName}"
-        }
-    }
-}
-
-task buildAllVersions {
-    dependsOn versions.keySet().collect { "buildForVersion-${it}" }
-}
-
-versions.each { version, config ->
-    task "buildForVersion-${version}" {
-        doLast {
-            exec {
-                commandLine './gradlew', 'buildForVersion', "-PtargetVersion=${version}"
-            }
         }
     }
 } 

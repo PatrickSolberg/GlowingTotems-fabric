@@ -11,14 +11,15 @@ A Fabric mod that makes the Totem of Undying emit light, even when dropped as an
 
 ## Requirements
 
-- Minecraft 1.21.5
+- Minecraft 1.21.5, 1.21.6, or 1.21.7
 - Fabric Loader 0.16.14+
 - Fabric API
 - **LambDynamicLights** (required for the lighting effect to work)
+- Java 17 or higher
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 1.21.5
+1. Install Fabric Loader for your Minecraft version
 2. Install Fabric API
 3. Install **LambDynamicLights** (required)
 4. Download and install this mod
@@ -51,6 +52,23 @@ To build this mod from source:
 ```
 
 The compiled mod will be in `build/libs/`.
+
+## Multi-Version Support
+
+This mod supports multiple Minecraft versions:
+- **1.21.5** - Stable release
+- **1.21.6** - Stable release  
+- **1.21.7** - Latest development version
+
+To build for a specific version:
+```bash
+./gradlew buildForVersion -PtargetVersion=1.21.6
+```
+
+To build for all versions:
+```bash
+./gradlew buildAllVersions
+```
 
 ## Future Updates
 

@@ -2,27 +2,17 @@
 
 ## 🚀 Getting Started
 
-### 1. Set Up Development Environment
-```bash
-# Windows
-setup-dev-env.bat
-
-# Linux/Mac
-chmod +x setup-dev-env.sh
-./setup-dev-env.sh
-```
-
-### 2. Test Your Mod
+### 1. Test Your Mod
 ```bash
 ./gradlew runClient
 ```
 
-### 3. Build for Specific Version
+### 2. Build for Specific Version
 ```bash
 ./gradlew buildForVersion -PtargetVersion=1.21.6
 ```
 
-### 4. Build for All Versions
+### 3. Build for All Versions
 ```bash
 ./gradlew buildAllVersions
 ```
@@ -72,8 +62,6 @@ chmod +x setup-dev-env.sh
 ## 📁 File Structure
 ```
 ├── build-versions.gradle          # Multi-version builds
-├── setup-dev-env.bat             # Windows setup
-├── setup-dev-env.sh              # Unix setup
 ├── .github/workflows/build.yml   # Automated releases
 ├── VERSION_MANAGEMENT.md         # Detailed guide
 └── QUICK_START.md               # This file
@@ -89,6 +77,6 @@ chmod +x setup-dev-env.sh
 ## 🆘 Need Help?
 
 - Check `VERSION_MANAGEMENT.md` for troubleshooting
-- Ensure JDK 21 is installed
+- Ensure JDK 17 is installed
 - Verify all dependencies are downloaded
 - Check GitHub Actions logs for build issues 

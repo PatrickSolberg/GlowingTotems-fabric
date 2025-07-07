@@ -11,20 +11,7 @@ This guide explains how to manage multiple Minecraft versions and releases for t
 
 ## Development Workflow
 
-### 1. Setting Up Development Environment
-
-**Windows:**
-```bash
-setup-dev-env.bat
-```
-
-**Linux/Mac:**
-```bash
-chmod +x setup-dev-env.sh
-./setup-dev-env.sh
-```
-
-### 2. Testing Your Mod
+### 1. Testing Your Mod
 
 ```bash
 # Test current version
@@ -35,7 +22,7 @@ chmod +x setup-dev-env.sh
 ./gradlew runClient
 ```
 
-### 3. Building for Different Versions
+### 2. Building for Different Versions
 
 ```bash
 # Build for specific version
@@ -102,8 +89,6 @@ When a new Minecraft version is released:
 ```
 GlowingTotems-fabric/
 ├── build-versions.gradle          # Multi-version build script
-├── setup-dev-env.bat             # Windows dev setup
-├── setup-dev-env.sh              # Unix dev setup
 ├── .github/workflows/build.yml   # Automated builds
 ├── src/main/resources/assets/glowing-totems/dynamiclights/
 │   ├── item/totem_of_undying.json
@@ -118,10 +103,17 @@ Currently supported Minecraft versions:
 - 1.21.6 ✅
 - 1.21.7 ✅
 
+## Requirements
+
+- **Java 17 or higher** (required for development and building)
+- Fabric Loader 0.16.14+
+- Fabric API
+- LambDynamicLights (for testing)
+
 ## Troubleshooting
 
 ### Build Issues
-- Ensure you have JDK 21 installed
+- Ensure you have JDK 17 installed
 - Run `./gradlew clean` before building
 - Check that all dependencies are available
 
