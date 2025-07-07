@@ -1,6 +1,6 @@
 # Glowing Totems
 
-A Fabric mod that makes the Totem of Undying emit light when dropped as an item, just like torches!
+A Fabric mod that makes the Totem of Undying emit light, even when dropped as an item, just like torches!
 
 ## Features
 
