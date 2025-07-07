@@ -60,6 +60,4 @@ echo - build/libs/glowing-totems-1.0.0-1.21.5.jar
 echo - build/libs/glowing-totems-1.0.0-1.21.6.jar  
 echo - build/libs/glowing-totems-1.0.0-1.21.7.jar
 echo.
-echo Note: Check build/libs/ directory for the actual JAR files
-echo.
 pause 
