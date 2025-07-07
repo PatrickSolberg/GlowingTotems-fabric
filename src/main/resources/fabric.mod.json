@@ -5,7 +5,7 @@
 	"name": "Glowing Totems",
 	"description": "Makes the Totem of Undying emit light when dropped as an item, just like torches!",
 	"authors": [
-		"PatrickSolberg"
+		"Patrick Solberg"
 	],
 	"contact": {
 		"homepage": "https://github.com/PatrickSolberg/GlowingTotems-fabric",
