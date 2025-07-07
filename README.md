@@ -45,6 +45,49 @@ src/main/resources/assets/glowing-totems/dynamiclights/
 
 ## Development
 
+### Quick Start
+
+To set up the development environment for the current version:
+
+**Windows:**
+```batch
+setup-dev-env.bat
+```
+
+**Unix/Linux/macOS:**
+```bash
+./setup-dev-env.sh
+```
+
+### Multi-Version Development
+
+To set up the development environment for a specific version:
+
+**Windows:**
+```batch
+setup-version.bat 1.21.6
+```
+
+**Unix/Linux/macOS:**
+```bash
+./setup-version.sh 1.21.6
+```
+
+### Running the Mod
+
+After setting up the development environment:
+
+```bash
+./gradlew runClient
+```
+
+This will:
+1. Download the required dependencies (Fabric API and LambDynamicLights)
+2. Place them in the `run/mods/` directory
+3. Start Minecraft with your mod loaded
+
+### Building
+
 To build this mod from source:
 
 ```bash
