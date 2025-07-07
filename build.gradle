@@ -19,14 +19,13 @@ repositories {
 	
 	// Repository for LambDynamicLights
 	maven {
-		url "https://maven.lambdaurora.dev"
-	}
-
-	maven {
 		name = "Gegy"
 		url = "https://maven.gegy.dev"
 	}
 }
+
+// Apply version management script
+apply from: 'build-versions.gradle'
 
 loom {
 	splitEnvironmentSourceSets()
