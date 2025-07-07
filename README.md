@@ -51,7 +51,7 @@ To set up the development environment for the current version:
 
 **Windows:**
 ```batch
-setup-dev-env.bat
+.\setup-dev-env.bat
 ```
 
 **Unix/Linux/macOS:**
